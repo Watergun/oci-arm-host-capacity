@@ -140,6 +140,11 @@ EOD;
             return !in_array($instance['lifecycleState'], $acceptableStates) && $instance['shape'] === $shape;
         });
 
+        $numInstances = count($this->existingInstances);
+
+        echo "Instances check:\n";
+        echo "$numInstances <?> $maxRunningInstancesOfThatShape \n";
+
         if (count($this->existingInstances) < $maxRunningInstancesOfThatShape) {
             return '';
         }
