@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
 
-
 // useful when script is being executed by cron user
 $pathPrefix = ''; // e.g. /usr/share/nginx/oci-arm-host-capacity/
 
@@ -36,6 +35,8 @@ $config = new OciConfig(
     (int) getenv('OCI_OCPUS'),
     (int) getenv('OCI_MEMORY_IN_GBS')
 );
+
+echo "Running script...";
 
 $bootVolumeSizeInGBs = (string) getenv('OCI_BOOT_VOLUME_SIZE_IN_GBS');
 $bootVolumeId = (string) getenv('OCI_BOOT_VOLUME_ID');
