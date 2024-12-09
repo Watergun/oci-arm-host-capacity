@@ -97,9 +97,6 @@ foreach ($availabilityDomains as $availabilityDomainEntity) {
     } catch(ApiCallException $e) {
         $message = $e->getMessage();
         echo "$message\n";
-        if ($notifier->isSupported()) {
-            $notifier->notify($message);
-        }
 
         if (
             $e->getCode() === 500 &&
